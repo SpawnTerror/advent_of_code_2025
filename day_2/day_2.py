@@ -22,9 +22,12 @@ def day_2_part_1():
              
         for number in range(r[0], r[1]+1):
 
-            number_length = len(str(number))
             number_string = str(number)
+            number_length = len(number_string)
 
+            '''
+            I assume I can cut the invalid ID in half and compare both parts
+            '''
             split_value = number_length // 2
 
             part_1 = number_string[:split_value]
