@@ -17,16 +17,12 @@ def day_1_part_1():
     current_pos = START_VALUE
 
     for command in commands:
-
         adjustment_value = int(command[1:])
         direction = command[0]
-        
         if direction == "R":
             current_pos = (current_pos + adjustment_value) % DIAL_SIZE
-        
         elif direction == "L":
             current_pos = (current_pos - adjustment_value) % DIAL_SIZE
-
         if current_pos == TARGET_POS:
             passwords = passwords + 1
     
@@ -50,24 +46,17 @@ def day_1_part_2():
     current_pos = START_VALUE
 
     for command in commands:
-
         adjustment_value = int(command[1:])
         direction = command[0]   
-
         for _ in range(adjustment_value):
-
             if direction == 'L':
                 current_pos = current_pos - 1
-
                 if current_pos < 0:
                     current_pos = DIAL_SIZE - 1
-
             elif direction == 'R':
                 current_pos = current_pos + 1
-
                 if current_pos >= DIAL_SIZE:
                     current_pos = 0
-            
             if current_pos == TARGET_POS:
                 passwords = passwords + 1
 
