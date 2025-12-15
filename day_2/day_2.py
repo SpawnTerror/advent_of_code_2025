@@ -28,7 +28,7 @@ def day_2_part_1():
             if part_1 == part_2:
                 invalid_ids_total = invalid_ids_total + number
         
-    print(f'Invalid IDs total is {invalid_ids_total}.')
+    print(f'Part 1 invalid IDs total is {invalid_ids_total}.')
 
 def day_2_part_2():
 
@@ -56,7 +56,7 @@ def day_2_part_2():
             if re.match(r'^(.+)\1+$', number_string):
                 invalid_ids_total = invalid_ids_total + number
 
-    print(f'Part 2 Invalid IDs total is {invalid_ids_total}.')
+    print(f'Part 2 invalid IDs total is {invalid_ids_total}.')
             
 if __name__ == '__main__':
     day_2_part_1()
