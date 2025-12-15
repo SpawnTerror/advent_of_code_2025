@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import re
 
 def day_2_part_1():
 
@@ -40,7 +41,39 @@ def day_2_part_1():
 
 def day_2_part_2():
 
-    pass
+    ranges = []
+    invalid_ids_total = 0
 
+    with open('day_2/input.txt', 'r') as f:
+
+        for line in f:
+            line = line.strip().split(',')
+
+            for entry in line:
+                
+                if not entry:
+                    continue
+
+                range_start, range_end = entry.split('-')
+                ranges.append([int(range_start), int(range_end)])
+
+    for r in ranges:
+        
+        for number in range(r[0], r[1] + 1):
+            number_string = str(number)
+
+            '''
+            ^      : Start of the string
+            (.+)   : Group 1. Match one or more characters (the pattern)
+            \1+    : Match exactly what was found in Group 1, one or more times
+            $      : End of the string
+            '''
+
+            if re.match(r'^(.+)\1+$', number_string):
+                invalid_ids_total = invalid_ids_total + number
+
+    print(f'Part 2 Invalid IDs total is {invalid_ids_total}.')
+            
 if __name__ == '__main__':
     day_2_part_1()
+    day_2_part_2()
